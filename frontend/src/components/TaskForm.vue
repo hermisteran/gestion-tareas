@@ -118,6 +118,7 @@
                 type="button"
                 class="btn btn-secondary ms-2"
                 @click="$emit('cancel')"
+                :disabled="processing"
               >
                 Cancelar
               </button>
@@ -195,6 +196,7 @@ const submitForm = async () => {
     } else {
       await store.createTask(form.value);
     }
+    processing.value = false;
     emit("save");
   } catch (err) {
     processing.value = false;
