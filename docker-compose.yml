@@ -1,0 +1,58 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    container_name: tareas-api
+    ports:
+      - "8000:80"
+    volumes:
+      - ./backend:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - laravel-net
+    environment:
+      APP_ENV: local
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: gestionTareas
+      DB_USERNAME: laravel
+      DB_PASSWORD: root
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost:8000/api
+    container_name: vue_app
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - laravel-net    
+
+  db:
+    image: mysql:8
+    container_name: mysql-db
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - laravel-net
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gestionTareas
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: root
+
+volumes:
+  db_data:
+
+networks:
+  laravel-net:
+    driver: bridge
