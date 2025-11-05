@@ -8,11 +8,11 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [8.4]
+        php: [8.2]  # Laravel 10 usa 8.1+, ajustá según tu versión
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -20,8 +20,10 @@ jobs:
           php-version: ${{ matrix.php }}
           tools: pint
 
-      - name: Run Pint
-        run: pint
+      - name: Run Pint in /backend
+        run: cd backend && pint
 
       - name: Commit linted files
         uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: "style: auto-fix with Laravel Pint"
