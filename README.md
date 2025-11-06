@@ -146,7 +146,7 @@ Los **tests de integración y unitarios** fueron implementados con **PHPUnit** y
 Comando para ejecutar desde Docker
 
 ```bash
-docker exec -it laravel_dev bash
+docker exec -it tareas-api bash
 php artisan test --filter=TaskFeatureTest
 ```
 
@@ -162,6 +162,7 @@ El proyecto usa **Laravel Pint** para mantener un estilo uniforme de código.
 Comando para ejecutar desde Docker
 
 ```bash
+docker exec -it tareas-api bash
 vendor/bin/pint
 ```
 
