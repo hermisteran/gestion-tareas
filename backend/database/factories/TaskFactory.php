@@ -23,9 +23,9 @@ class TaskFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'status' => 'pendiente', 
+            'status' => 'pendiente',
             'due_date' => now()->addDays(rand(1, 10)),
-            'priority_id' => Priority::factory(), 
+            'priority_id' => Priority::factory(),
         ];
 
     }

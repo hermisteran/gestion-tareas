@@ -16,7 +16,6 @@ class PriorityController extends Controller
 
     /**
      * Inyecta el servicio de prioridades.
-     * @param PriorityService $service
      */
     public function __construct(PriorityService $service)
     {
@@ -25,8 +24,6 @@ class PriorityController extends Controller
 
     /**
      * Retorna un listado de todas las prioridades disponibles.
-     *
-     * @return AnonymousResourceCollection
      */
     public function index(): AnonymousResourceCollection
     {
