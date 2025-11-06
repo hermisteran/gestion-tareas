@@ -81,8 +81,13 @@ project-root/
 
 ---
 
-## Entorno Docker
+## Ejecución con entorno Docker
 
+**Clonar repositorio:**
+```bash
+git clone https://github.com/hermisteran/gestion-tareas.git
+cd gestion-tareas
+```
 El entorno se divide en dos modos:
 
 ### Desarrollo / Local
@@ -101,6 +106,16 @@ docker compose up -d --build
 - Frontend compilado y servido por **Nginx**.
 - Configuración lista para despliegue.
 
+
+URL Backend (Documentación de la API)
+```bash
+http://localhost:8000/docs/api
+```
+
+URL Frontend
+```bash
+http://localhost:5173/
+```
 ---
 
 ## Documentación de la API (Scramble)
@@ -176,7 +191,11 @@ vendor/bin/pint
 ---
 
 ## Ejecución local (sin Docker)
-
+**Clonar repositorio:**
+```bash
+git clone https://github.com/hermisteran/gestion-tareas.git
+cd gestion-tareas
+```
 **Backend**
 ```bash
 cd backend
@@ -211,7 +230,9 @@ cp .env.example .env
 
 **Variables de Entorno:**
 Antes de ejecutar los comandos, asegúrate de **definir el valor** de las siguiente variable en el archivo **`.env`** del frontend:
-
+```bash
+VITE_API_URL=http://localhost/api # Reemplaza por la url del entorno local de la api, si es diferente
+```
 **Frontend**
 ```bash
 npm install

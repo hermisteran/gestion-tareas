@@ -5,10 +5,6 @@ if [ ! -f .env ]; then
   cp .env.example .env
 fi
 
-# **NUEVO:** Genera la llave de aplicación (APP_KEY)
-# El comando se ejecuta siempre, pero solo surte efecto si APP_KEY no está establecida
-php artisan key:generate
-
 if [ ! -d vendor ]; then
   echo "Ejecutando composer install..."
   composer install --prefer-dist --optimize-autoloader --no-scripts
@@ -30,7 +26,7 @@ chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 echo "Limpiando y configurando Laravel..."
 php artisan config:cache
 php artisan optimize:clear
-
+php artisan key:generate
 # MIGRACIONES
 echo "Ejecutando migraciones y seeders..."
 php artisan migrate:fresh --seed --force
