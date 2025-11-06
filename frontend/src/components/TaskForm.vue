@@ -120,7 +120,7 @@
                 @click="$emit('cancel')"
                 :disabled="processing"
               >
-                Cancelar
+                {{ viewTask ? "Cerrar" : "Cancelar" }}
               </button>
               <br />
               <small>(<span class="required">*</span>) datos requeridos.</small>

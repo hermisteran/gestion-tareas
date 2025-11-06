@@ -42,7 +42,7 @@ class TaskService
 
         $perPage = $filters['per_page'] ?? 15;
 
-        return $query->orderBy('due_date')->paginate($perPage);
+        return $query->orderBy('created_at')->paginate($perPage);
     }
 
     public function create(array $data)
