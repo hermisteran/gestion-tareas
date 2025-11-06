@@ -90,7 +90,7 @@ return [
      * ```
      */
     'servers' => [
-        'Railway Live API' => env('APP_URL').'/api',
+        'Servicio API' => env('APP_URL').'/api',
     ],
 
     /**
