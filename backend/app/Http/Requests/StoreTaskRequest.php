@@ -22,10 +22,30 @@ class StoreTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
+            /**
+             * El título de la tarea.
+             * @example "Generar Endpoints"
+             */
             'title' => 'required|string|max:255',
+            /**
+             * Descripción detallada de la tarea. 
+             * @example "Listar los endpoints disponibles"
+             */
             'description' => 'required|string',
+            /**
+             * Fecha límite para completar la tarea. Formato YYYY-MM-DD. 
+             * @example "2025-12-31"
+             */
             'due_date' => 'nullable|date|after_or_equal:today',
+            /**
+             * El ID de la prioridad debe existir, consultar el listado de Priority.
+             * @example 1
+             */
             'priority_id' => 'required|exists:priorities,id',
+            /**
+             * El ID de cada etiqueta debe existir, consultar el listado de Tag.
+             * @example [1,3]
+             */
             'tags' => 'required|array',
             'tags.*' => 'exists:tags,id',
         ];
