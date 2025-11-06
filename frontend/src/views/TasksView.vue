@@ -49,6 +49,7 @@ const openForm = (task = null, view = false) => {
 const onDelete = async (id) => {
   if (confirm("¿Eliminar esta tarea?")) {
     await store.deleteTask(id);
+    alert("Tarea Eliminada.");
   }
 };
 

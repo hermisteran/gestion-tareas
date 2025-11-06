@@ -39,7 +39,9 @@ export const useTasksStore = defineStore('tasks', {
       if (index !== -1) this.tasks[index] = data.data
     },
     async deleteTask(id) {
+      this.loading = true
       await tasksApi.delete(id)
+      this.loading = false
       this.tasks = this.tasks.filter((t) => t.id !== id)
     },
   },
