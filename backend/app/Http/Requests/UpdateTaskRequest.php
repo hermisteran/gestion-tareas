@@ -26,31 +26,37 @@ class UpdateTaskRequest extends FormRequest
         return [
             /**
              * El título de la tarea.
+             *
              * @example "Generar Endpoints Editado"
              */
             'title' => 'sometimes|required|string|max:255',
             /**
-             * Descripción detallada de la tarea. 
+             * Descripción detallada de la tarea.
+             *
              * @example "Listar los endpoints disponibles."
              */
             'description' => 'sometimes|string',
             /**
              * Estado de la tarea, solo hay 3 opciones disponibles
+             *
              * @example "en_progreso"
              */
             'status' => ['sometimes', new Enum(TaskStatusEnum::class)],
             /**
              * Fecha límite para completar la tarea. Formato YYYY-MM-DD.
+             *
              * @example "2026-01-31"
              */
             'due_date' => 'sometimes|nullable|date|after_or_equal:today',
             /**
              * El ID de la prioridad debe existir, consultar el listado de Priority.
+             *
              * @example 2
              */
             'priority_id' => 'sometimes|required|exists:priorities,id',
             /**
              * El ID de cada etiqueta debe existir, consultar el listado de Tag.
+             *
              * @example [1,3]
              */
             'tags' => 'sometimes|array',

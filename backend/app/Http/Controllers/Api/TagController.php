@@ -16,7 +16,6 @@ class TagController extends Controller
 
     /**
      * Inyecta el servicio de etiquetas.
-     * @param TagService $service
      */
     public function __construct(TagService $service)
     {
@@ -25,8 +24,6 @@ class TagController extends Controller
 
     /**
      * Retorna un listado de todas las etiquetas (tags) disponibles.
-     *
-     * @return AnonymousResourceCollection
      */
     public function index(): AnonymousResourceCollection
     {

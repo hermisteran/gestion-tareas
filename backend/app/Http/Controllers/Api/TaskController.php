@@ -21,7 +21,6 @@ class TaskController extends Controller
 
     /**
      * Inyecta el servicio de tareas.
-     * @param TaskService $service
      */
     public function __construct(TaskService $service)
     {
@@ -30,8 +29,6 @@ class TaskController extends Controller
 
     /**
      * Obtener lista paginada de tareas.
-     * @param Request $request
-     * @return AnonymousResourceCollection
      */
     public function index(Request $request): AnonymousResourceCollection
     {
@@ -42,8 +39,6 @@ class TaskController extends Controller
 
     /**
      * Crea una nueva tarea.
-     * @param StoreTaskRequest $request
-     * @return TaskResource
      */
     public function store(StoreTaskRequest $request): TaskResource
     {
@@ -54,8 +49,6 @@ class TaskController extends Controller
 
     /**
      * Muestra una tarea específica por ID.
-     * @param Task $task
-     * @return TaskResource
      */
     public function show(Task $task): TaskResource
     {
@@ -64,9 +57,6 @@ class TaskController extends Controller
 
     /**
      * Actualiza una tarea existente.
-     * @param UpdateTaskRequest $request
-     * @param Task $task
-     * @return TaskResource
      */
     public function update(UpdateTaskRequest $request, Task $task): TaskResource
     {
@@ -77,8 +67,6 @@ class TaskController extends Controller
 
     /**
      * Elimina una tarea específica.
-     * @param Task $task
-     * @return Response
      */
     public function destroy(Task $task): Response
     {
