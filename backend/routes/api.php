@@ -12,11 +12,11 @@ Route::apiResource('tags', TagController::class)->only(['index']);
 
 /**
  * Estados de Tareas
- * 
+ *
  * Retorna un listado de los estados disponibles para asignar a una tarea.
  */
 Route::get('statuses', function () {
-    $statuses = collect(TaskStatusEnum::cases())->map(fn($status) => [
+    $statuses = collect(TaskStatusEnum::cases())->map(fn ($status) => [
         'value' => $status->value,
         'label' => $status->name,
     ])->values();
