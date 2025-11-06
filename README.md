@@ -85,7 +85,7 @@ project-root/
 
 El entorno se divide en dos modos:
 
-### Desarrollo (Hot Reload)
+### Desarrollo / Local
 ```bash
 docker compose -f docker-compose.dev.yml up --build
 ```
@@ -93,7 +93,7 @@ docker compose -f docker-compose.dev.yml up --build
 - Frontend con **Vite** y recarga automática (HMR).
 - Base de datos MySQL persistente.
 
-### Producción (Optimizado)
+### Producción
 ```bash
 docker compose up -d --build
 ```
